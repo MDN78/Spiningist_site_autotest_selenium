@@ -5,6 +5,8 @@ import time
 # from pages.client_information_page import ClientPage
 # from pages.finish_page import FinishPage
 from pages.login_page import LoginPage
+from pages.main_page import MainPage
+
 
 # from pages.main_page import MainPage
 # from pages.payment_page import PaymentPage
@@ -17,12 +19,9 @@ def test_buy_product():
 
     login = LoginPage(driver)
     login.authorization()
-
-    # login = LoginPage(driver)
-    # login.authorization()
     # # mp - short name for main page
-    # mp = MainPage(driver)
-    # mp.select_products_1()
+    mp = MainPage(driver)
+    mp.select_spinning_page()
     # # cp - short name for cart_page
     # cp = CartPage(driver)
     # cp.click_checkout_button()
