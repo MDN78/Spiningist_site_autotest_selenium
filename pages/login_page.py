@@ -19,6 +19,7 @@ class LoginPage(Base):
     password = "//input[@id='password']"
     button_login = "//button[@class='btn btn-black b-cmall-members-body_small_block__body-button']"
     exit_account = "//span[@class='hidden-sm hidden-xs']"
+    word_authorization = "//span[@class='hidden-sm hidden-xs']"
 
     # Getters
     def get_enter_account(self):
@@ -35,6 +36,9 @@ class LoginPage(Base):
 
     def get_exit_account(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.exit_account)))
+
+    def get_word_authorization(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.word_authorization)))
 
     # Actions
     def click_enter_account(self):
@@ -62,11 +66,10 @@ class LoginPage(Base):
     def authorization(self):
         self.driver.get(self.url)
         self.driver.maximize_window()
-        # self.get_current_url()
+        self.get_current_url()
         self.click_enter_account()
         self.input_user_name("test_login")
         self.input_password("111111test")
         self.click_login_button()
-
-        # self.assert_word(self.get_main_word(), 'Products')
+        self.assert_word(self.get_word_authorization(), 'История заказов')
 
