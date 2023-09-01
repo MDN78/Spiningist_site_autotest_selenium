@@ -2,3 +2,6 @@
 
 Site for test project
 https://spinningist.ru/buy/spinningi
+
+User: <br> login: - test_login<br>
+password: - 111111test
