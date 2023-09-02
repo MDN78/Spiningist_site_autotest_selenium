@@ -16,6 +16,9 @@ class SpinningPage(Base):
     spinning_type = "checkbox_spec_eshop_filter_001003112ext_custom_96[]_1"
     max_price = "//input[@class='cmallFilter__rangeSlider_price_to form-control b-cmall-eshop-filter-spec-cf__item-text b-cmall-eshop-filter-spec-cf__item-text-to']"
     count_section = "checkbox_spec_eshop_filter_001003112ext_custom_77[]_3"
+    select_button = "//button[@class='btn btn-black b-cmall-filter_form-field_submit__next-btn']"
+    word_search = "//div[@class='eshop-item-list__search-result 123']"
+    word_search_text = 'Найдено товаров:'
 
     # Getters
     def get_spinning_brand(self):
@@ -32,6 +35,12 @@ class SpinningPage(Base):
 
     def get_count_section(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.ID, self.count_section)))
+
+    def get_select_button(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.select_button)))
+
+    def get_word_search(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.word_search)))
 
     # Actions
 
@@ -56,6 +65,10 @@ class SpinningPage(Base):
         self.get_count_section().click()
         print("Chose count section")
 
+    def click_select_button(self):
+        self.get_select_button().click()
+        print("Select options of spinning")
+
     # Methods
 
     def select_spinning_character(self):
@@ -65,5 +78,8 @@ class SpinningPage(Base):
         self.click_spinning_type()
         self.click_max_price()
         self.click_count_section()
+        self.click_select_button()
+        self.check_exists_by_xpath(self.word_search, self.word_search_text)
+
 
 

@@ -1,5 +1,8 @@
 from selenium.webdriver import ActionChains
-
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 class Base():
 
@@ -19,3 +22,12 @@ class Base():
         assert value_word == result, "Wrong assert word"
         print("Good value word")
 
+    """Method checking by XPATH"""
+
+    def check_exists_by_xpath(self, xpath, search_word):
+        try:
+            WebDriverWait(self.driver, 30).until(EC.text_to_be_present_in_element(
+                (By.XPATH, xpath), search_word))
+            print("Desired text was present")
+        except TimeoutException:
+            print("Desired text was not present")

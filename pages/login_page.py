@@ -21,6 +21,7 @@ class LoginPage(Base):
     exit_account = "//span[@class='hidden-sm hidden-xs']"
     word_authorization = "//span[@class='hidden-sm hidden-xs']"
 
+
     # Getters
     def get_enter_account(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.enter_account)))
@@ -60,7 +61,6 @@ class LoginPage(Base):
     def click_exit_account(self):
         self.get_exit_account().click()
         print("Exit account")
-
 
     # Methods
     def authorization(self):

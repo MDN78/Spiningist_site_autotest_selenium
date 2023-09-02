@@ -1,18 +1,8 @@
-import pytest
 from selenium import webdriver
 import time
-
-from base.scroll_page import ScrollPage
-# from pages.cart_page import CartPage
-# from pages.client_information_page import ClientPage
-# from pages.finish_page import FinishPage
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from pages.spinning_page import SpinningPage
-
-
-# from pages.main_page import MainPage
-# from pages.payment_page import PaymentPage
 
 
 def test_buy_product():
@@ -29,7 +19,7 @@ def test_buy_product():
     sp = SpinningPage(driver)
     sp.select_spinning_character()
 
-    time.sleep(2)
+    time.sleep(4)
 
     # scr = ScrollPage(driver)
     # scr.move_price()
