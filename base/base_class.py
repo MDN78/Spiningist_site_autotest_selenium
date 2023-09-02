@@ -1,3 +1,4 @@
+from selenium.webdriver import ActionChains
 
 
 class Base():
@@ -17,3 +18,4 @@ class Base():
         value_word = word.text
         assert value_word == result, "Wrong assert word"
         print("Good value word")
+
