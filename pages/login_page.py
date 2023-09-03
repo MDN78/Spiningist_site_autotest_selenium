@@ -2,6 +2,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from base.base_class import Base
+from base.user_info import UserInfo
 
 class LoginPage(Base):
 
@@ -66,8 +67,8 @@ class LoginPage(Base):
         self.driver.maximize_window()
         self.get_current_url()
         self.click_enter_account()
-        self.input_user_name("test_login")
-        self.input_password("111111test")
+        self.input_user_name(UserInfo.user)
+        self.input_password(UserInfo.passw)
         self.click_login_button()
         self.assert_word(self.get_word_authorization(), 'История заказов')
 

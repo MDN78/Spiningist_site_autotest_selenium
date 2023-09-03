@@ -58,6 +58,16 @@ class BasketPage(Base):
         self.get_phone().send_keys('9214445566')
         print("Input phone number")
 
+    def select_payment_method(self):
+        self.driver.execute_script("return arguments[0].scrollIntoView(true);", self.get_payment_method())
+        self.get_payment_method().click()
+        self.get_payment_bank_card().click()
+        print("Select payment method")
+
+    def select_delivery(self):
+        self.get_delivery().click()
+        print("Select delivery type")
+
     # Methods
 
     def data_entry(self):
@@ -66,4 +76,6 @@ class BasketPage(Base):
         self.input_name()
         self.input_email()
         self.input_phone()
+        self.select_payment_method()
+        self.select_delivery()
         time.sleep(3)
