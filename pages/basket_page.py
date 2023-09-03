@@ -14,9 +14,11 @@ class BasketPage(Base):
     name = "//input[@name='firstname']"
     email = "//input[@name='email']"
     phone = "//input[@name='contact']"
-    payment_method = "//select[@id='naturalPaymentMethods']"
-    payment_bank_card = "//options[@data-ami-payment-method='stub2']"
+    payment_method = 'naturalPaymentMethods'
+    payment_bank_card = "//option[@data-ami-payment-method='stub2']"
     delivery = "//input[@id='shipping_method_11_12']"
+    #delivery_date =
+
     word_basket = "//div[@class='b-cmall-page-name__order']"
 
     # Getters
@@ -31,7 +33,7 @@ class BasketPage(Base):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.phone)))
 
     def get_payment_method(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.payment_method)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.ID, self.payment_method)))
 
     def get_payment_bank_card(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.payment_bank_card)))
