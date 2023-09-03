@@ -1,3 +1,4 @@
+import time
 from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -19,6 +20,9 @@ class SpinningPage(Base):
     select_button = "//button[@class='btn btn-black b-cmall-filter_form-field_submit__next-btn']"
     word_search = "//div[@class='eshop-item-list__search-result 123']"
     word_search_text = 'Найдено товаров:'
+    select_product_1 = "//a[@title='Удилище спин. Maximus BUTCHER-X 18L 1,8m 3-15g']"
+    click_select_product_1 = "//div[@class='b-cmall-eshop-itemD-base-price__item-price-form button-group eshop-item-detailed__cart-box eshop-item-detailed__cart-box_base btn']"
+    go_to_basket = "//button[@class='btn btn-primary modal-cart-order-btn b-cmall-eshop-cart-added-modal__footer-button-order']"
 
     # Getters
     def get_spinning_brand(self):
@@ -41,6 +45,15 @@ class SpinningPage(Base):
 
     def get_word_search(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.word_search)))
+
+    def get_select_product_1(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.select_product_1)))
+
+    def get_click_select_product_1(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.click_select_product_1)))
+
+    def get_go_to_basket(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.go_to_basket)))
 
     # Actions
 
@@ -69,6 +82,18 @@ class SpinningPage(Base):
         self.get_select_button().click()
         print("Select options of spinning")
 
+    def click_get_select_product_1(self):
+        self.get_select_product_1().click()
+        print("Select product 1")
+
+    def click_click_select_product_1(self):
+        self.get_click_select_product_1().click()
+        print("Click to by product 1")
+
+    def click_go_to_basket(self):
+        self.get_go_to_basket().click()
+        print("Go to basket")
+
     # Methods
 
     def select_spinning_character(self):
@@ -80,6 +105,15 @@ class SpinningPage(Base):
         self.click_count_section()
         self.click_select_button()
         self.check_exists_by_xpath(self.word_search, self.word_search_text)
+
+    def select_spinning(self):
+        self.click_get_select_product_1()
+        time.sleep(3)
+        self.click_click_select_product_1()
+        self.click_go_to_basket()
+
+
+
 
 
 

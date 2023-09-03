@@ -1,5 +1,7 @@
 from selenium import webdriver
 import time
+
+from pages.basket_page import BasketPage
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from pages.spinning_page import SpinningPage
@@ -18,6 +20,10 @@ def test_buy_product():
     # sp - short name spinning page
     sp = SpinningPage(driver)
     sp.select_spinning_character()
+    sp.select_spinning()
+    # bp - short name for basket page
+    bp = BasketPage(driver)
+    bp.data_entry()
 
     time.sleep(4)
 
@@ -38,5 +44,5 @@ def test_buy_product():
     # fp = FinishPage(driver)
     # fp.finish()
     # print("Finish test 1")
-    time.sleep(5)
+
     driver.close()
