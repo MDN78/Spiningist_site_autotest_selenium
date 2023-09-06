@@ -26,23 +26,4 @@ def test_buy_product():
     bp.data_entry()
 
     time.sleep(4)
-
-    # scr = ScrollPage(driver)
-    # scr.move_price()
-
-
-    # # cp - short name for cart_page
-    # cp = CartPage(driver)
-    # cp.click_checkout_button()
-    # #cip - short name for client_information_page
-    # cip = ClientPage(driver)
-    # cip.input_information()
-    # # p - short name for payment_page
-    # p = PaymentPage(driver)
-    # p.click_finish_button()
-    # # fp - short name for finish_page
-    # fp = FinishPage(driver)
-    # fp.finish()
-    # print("Finish test 1")
-
     driver.close()

@@ -24,7 +24,6 @@ class SpinningPage(Base):
     click_select_product_1 = "//div[@class='b-cmall-eshop-itemD-base-price__item-price-form button-group eshop-item-detailed__cart-box eshop-item-detailed__cart-box_base btn']"
     go_to_basket = "//button[@class='btn btn-primary modal-cart-order-btn b-cmall-eshop-cart-added-modal__footer-button-order']"
 
-
     # Getters
     def get_spinning_brand(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.ID, self.spinning_brand)))

@@ -18,7 +18,6 @@ class UserInfo(Base):
 
     """Delivery info"""
 
-    street = "Lermontova"
-    house = 12
-    flat = 234
+    street_user = "Lermontova"
+    house_user = 12
     additional_information = "Delivery after 12 o'clock'"
