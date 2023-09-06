@@ -21,5 +21,4 @@ class UserInfo(Base):
     street = "Lermontova"
     house = 12
     flat = 234
-    metro_station = "Orehovo"
     additional_information = "Delivery after 12 o'clock'"

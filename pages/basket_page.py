@@ -3,6 +3,8 @@ from base.base_class import Base
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
+from base.user_info import UserInfo
+
 
 class BasketPage(Base):
 
@@ -17,10 +19,13 @@ class BasketPage(Base):
     payment_method = 'naturalPaymentMethods'
     payment_bank_card = "//option[@data-ami-payment-method='stub2']"
     delivery = "//input[@id='shipping_method_11_12']"
-    #delivery_date =
-
+    delivery_date_menu = "//select[@name='delivery_date_custom']"
+    delivery_date = "//option[@value='07.09.23']"
+    metro_menu = "//select[@name='station_custom']"
+    metro_station = "//option[@value='Автозаводская']"
+    comments = "//textarea[@name='comments']"
     word_basket = "//div[@class='b-cmall-page-name__order']"
-
+    # //select[@class='form-control no-rounded']//
     # Getters
 
     def get_name(self):
@@ -44,20 +49,35 @@ class BasketPage(Base):
     def get_word_basket(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.word_basket)))
 
+    def get_delivery_date_menu(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.delivery_date_menu)))
+
+    def get_delivery_date(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.delivery_date)))
+
+    def get_metro_menu(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.metro_menu)))
+
+    def get_metro_station(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.metro_station)))
+
+    def get_comments(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.comments)))
+
     # Actions
 
     def input_name(self):
         self.get_name().clear()
-        self.get_name().send_keys('Evlampy')
+        self.get_name().send_keys(UserInfo.name)
         print("Input first name")
 
     def input_email(self):
         self.get_email().clear()
-        self.get_email().send_keys('test@yandex.ru')
+        self.get_email().send_keys(UserInfo.email)
         print("Input E-MAIL")
 
     def input_phone(self):
-        self.get_phone().send_keys('9214445566')
+        self.get_phone().send_keys(UserInfo.phone)
         print("Input phone number")
 
     def select_payment_method(self):
@@ -70,6 +90,25 @@ class BasketPage(Base):
         self.get_delivery().click()
         print("Select delivery type")
 
+    def select_delivery_date(self):
+        self.driver.execute_script("return arguments[0].scrollIntoView(true);", self.get_delivery_date_menu())
+        # self.driver.execute_script("window.scrollBy(0, 400);")
+        self.get_delivery_date_menu().click()
+        self.get_delivery_date().click()
+        print("Select delivery date")
+
+    def select_metro_station(self):
+        # self.driver.execute_script("return arguments[0].scrollIntoView(true);", self.get_metro_station())
+        self.driver.execute_script("window.scrollBy(0, 400);")
+        self.get_metro_menu().click()
+        self.get_metro_station().click()
+        print("Select metro station")
+
+    def input_comments(self):
+        self.get_comments().send_keys(UserInfo.additional_information)
+        print("Input comments")
+
+
     # Methods
 
     def data_entry(self):
@@ -80,4 +119,7 @@ class BasketPage(Base):
         self.input_phone()
         self.select_payment_method()
         self.select_delivery()
+        self.select_delivery_date()
+        self.select_metro_station()
+        self.input_comments()
         time.sleep(3)
