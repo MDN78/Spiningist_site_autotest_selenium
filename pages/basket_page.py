@@ -22,7 +22,7 @@ class BasketPage(Base):
     payment_bank_card = "//option[@data-ami-payment-method='stub2']"
     delivery = "//input[@id='shipping_method_11_12']"
     delivery_date_menu = "//select[@name='delivery_date_custom']"
-    delivery_date = "//option[@value='07.09.23']"
+    delivery_date = "//option[@value='13.09.23']"
     metro_menu = "//select[@name='station_custom']"
     metro_station = "//option[@value='Автозаводская']"
 
@@ -144,4 +144,5 @@ class BasketPage(Base):
         self.select_delivery_date()
         self.select_metro_station()
         self.input_comments()
+        self.create_screenshot("Final_order")
         time.sleep(3)

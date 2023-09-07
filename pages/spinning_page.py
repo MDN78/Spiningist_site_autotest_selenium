@@ -109,7 +109,8 @@ class SpinningPage(Base):
 
     def select_spinning(self):
         self.click_get_select_product_1()
-        time.sleep(3)
+        time.sleep(1)
+        self.create_screenshot("Selected_spinning")
         self.click_click_select_product_1()
         self.click_go_to_basket()
 

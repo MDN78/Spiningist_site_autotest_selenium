@@ -1,3 +1,4 @@
+import datetime
 from selenium.webdriver import ActionChains
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.common.by import By
@@ -31,3 +32,11 @@ class Base():
             print("Desired text was present")
         except TimeoutException:
             print("Desired text was not present")
+
+    """Method for screenshot"""
+
+    def create_screenshot(self, name):
+        current_date = datetime.datetime.utcnow().strftime("%Y.%m.%d-%H.%M.%S")
+        name_screenshot = f"{name}_{current_date}.png"
+        self.driver.save_screenshot('C:\\Users\\Dmitry\\Desktop\\git\\Spiningist_site_autotest_selenium\\screen\\' + name_screenshot)
+

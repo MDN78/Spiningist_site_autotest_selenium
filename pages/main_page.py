@@ -30,5 +30,6 @@ class MainPage(Base):
     def select_spinning_page(self):
         self.get_current_url()
         self.click_button_spinning()
+        self.create_screenshot("Spinning_page")
         self.assert_word(self.get_word_spinning(), 'Спиннинги')
 
