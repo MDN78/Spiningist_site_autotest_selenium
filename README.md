@@ -1,7 +1,10 @@
-# Spiningist_site_autotest_selenium
+## Spiningist_site_autotest_selenium
 
-Site for test project
+### Site for test project:<br>
 https://spinningist.ru/buy/spinningi
+
+Main course is smoke test for general process - buying spinning
 
 User: <br> login: - test_login<br>
 password: - 111111test
+
