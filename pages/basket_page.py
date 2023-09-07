@@ -7,6 +7,7 @@ from base.user_info import UserInfo
 
 
 class BasketPage(Base):
+    """Method for filling up information about user's personal information"""
 
     def __init__(self, driver):
         super().__init__(driver)

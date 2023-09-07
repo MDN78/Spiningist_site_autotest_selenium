@@ -1,11 +1,11 @@
 import datetime
-from selenium.webdriver import ActionChains
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 class Base():
+    """These methods you can use in all modules"""
 
     def __init__(self, driver):
         self.driver = driver
@@ -38,5 +38,6 @@ class Base():
     def create_screenshot(self, name):
         current_date = datetime.datetime.utcnow().strftime("%Y.%m.%d-%H.%M.%S")
         name_screenshot = f"{name}_{current_date}.png"
-        self.driver.save_screenshot('C:\\Users\\Dmitry\\Desktop\\git\\Spiningist_site_autotest_selenium\\screen\\' + name_screenshot)
+        self.driver.save_screenshot('C:\\Users\\Dmitry\\Desktop\\git\\Spiningist_site_autotest_selenium\\screen\\'
+                                    + name_screenshot)
 

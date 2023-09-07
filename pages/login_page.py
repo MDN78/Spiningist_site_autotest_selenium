@@ -5,6 +5,7 @@ from base.base_class import Base
 from base.user_info import UserInfo
 
 class LoginPage(Base):
+    """Method for user's authorization"""
 
     url = 'https://spinningist.ru/'
 

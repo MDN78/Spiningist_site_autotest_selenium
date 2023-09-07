@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 from base.base_class import Base
 
 class SpinningPage(Base):
+    """Method for selecting spinning"""
 
     def __init__(self, driver):
         super().__init__(driver)
