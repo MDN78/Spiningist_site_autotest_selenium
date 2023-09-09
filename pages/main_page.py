@@ -4,11 +4,6 @@ from selenium.webdriver.common.by import By
 from base.base_class import Base
 
 class MainPage(Base):
-    """Method for choosing spinning page"""
-
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
 
     # Locators
     button_spinning = "//a[@class='b-menu__link b-menu__link-arr']"

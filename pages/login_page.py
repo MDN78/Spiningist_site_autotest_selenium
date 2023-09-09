@@ -5,13 +5,8 @@ from base.base_class import Base
 from base.user_info import UserInfo
 
 class LoginPage(Base):
-    """Method for user's authorization"""
 
     url = 'https://spinningist.ru/'
-
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
 
     # Locators
     enter_account = "//span[@class='hidden-sm hidden-xs b-cmall-members-small_menu_login__item-link-name']"
