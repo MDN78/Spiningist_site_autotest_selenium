@@ -1,0 +1,55 @@
+
+-----
+Test: tests/test_buy_product.py::test_buy_product (call)
+Start time: 2023-09-13 18:05:12.379263
+Start name method: authorization
+
+End time: 2023-09-13 18:05:15.697084
+End name method: authorization
+URL: https://spinningist.ru/
+
+-----
+
+-----
+Test: tests/test_buy_product.py::test_buy_product (call)
+Start time: 2023-09-13 18:05:15.698084
+Start name method: select_spinning_page
+
+End time: 2023-09-13 18:05:16.403747
+End name method: select_spinning_page
+URL: https://spinningist.ru/buy/spinningi
+
+-----
+
+-----
+Test: tests/test_buy_product.py::test_buy_product (call)
+Start time: 2023-09-13 18:05:16.403747
+Start name method: select_spinning_character
+
+End time: 2023-09-13 18:05:18.891103
+End name method: select_spinning_character
+URL: https://spinningist.ru/buy/spinningi?&catid=20128&ext_custom_13[]=Maximus&ext_custom_75[]=L%20-%20%D0%BB%D1%91%D0%B3%D0%BA%D0%B8%D0%B5&ext_custom_96[]=%D1%83%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9&price_from=1000&price_to=12000&ext_custom_98[]=1.3&ext_custom_98[]=3.9&ext_custom_97[]=0.2&ext_custom_97[]=100&ext_custom_100[]=1.5&ext_custom_100[]=250&ext_custom_77[]=2&ext_custom_161[]=0&ext_custom_161[]=326&pf=1&flt_force_values=1&action=search&search_subcats=1
+
+-----
+
+-----
+Test: tests/test_buy_product.py::test_buy_product (call)
+Start time: 2023-09-13 18:05:18.892103
+Start name method: select_spinning
+
+End time: 2023-09-13 18:05:23.262973
+End name method: select_spinning
+URL: https://spinningist.ru/members/order
+
+-----
+
+-----
+Test: tests/test_buy_product.py::test_buy_product (call)
+Start time: 2023-09-13 18:05:23.262973
+Start name method: data_entry
+
+End time: 2023-09-13 18:05:25.155018
+End name method: data_entry
+URL: https://spinningist.ru/members/order
+
+-----

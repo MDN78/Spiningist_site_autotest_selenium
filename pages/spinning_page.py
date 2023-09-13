@@ -4,6 +4,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from base.base_class import Base
+from utilities.logger import Logger
+
 
 class SpinningPage(Base):
 
@@ -94,6 +96,7 @@ class SpinningPage(Base):
     # Methods
 
     def select_spinning_character(self):
+        Logger.add_start_step(method='select_spinning_character')
         self.get_current_url()
         self.click_spinning_brand()
         self.click_spinning_class()
@@ -102,13 +105,16 @@ class SpinningPage(Base):
         self.click_count_section()
         self.click_select_button()
         self.check_exists_by_xpath(self.word_search, self.word_search_text)
+        Logger.add_end_step(url=self.driver.current_url, method='select_spinning_character')
 
     def select_spinning(self):
+        Logger.add_start_step(method='select_spinning')
         self.click_get_select_product_1()
         time.sleep(1)
         self.create_screenshot("Selected_spinning")
         self.click_click_select_product_1()
         self.click_go_to_basket()
+        Logger.add_end_step(url=self.driver.current_url, method='select_spinning')
 
 
 

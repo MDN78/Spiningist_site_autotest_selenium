@@ -4,6 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from base.user_info import UserInfo
+from utilities.logger import Logger
 
 
 class BasketPage(Base):
@@ -17,7 +18,7 @@ class BasketPage(Base):
     payment_bank_card = "//option[@data-ami-payment-method='stub2']"
     delivery = "//input[@id='shipping_method_11_12']"
     delivery_date_menu = "//select[@name='delivery_date_custom']"
-    delivery_date = "//option[@value='13.09.23']"
+    delivery_date = "//option[@value='19.09.23']"
     metro_menu = "//select[@name='station_custom']"
     metro_station = "//option[@value='Автозаводская']"
 
@@ -127,6 +128,7 @@ class BasketPage(Base):
     # Methods
 
     def data_entry(self):
+        Logger.add_start_step(method='data_entry')
         self.get_current_url()
         self.assert_word(self.get_word_basket(), 'Оформление заказа')
         self.input_name()
@@ -140,4 +142,5 @@ class BasketPage(Base):
         self.select_metro_station()
         self.input_comments()
         self.create_screenshot("Final_order")
+        Logger.add_end_step(url=self.driver.current_url, method='data_entry')
         time.sleep(3)

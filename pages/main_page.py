@@ -2,6 +2,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from base.base_class import Base
+from utilities.logger import Logger
+
 
 class MainPage(Base):
 
@@ -24,8 +26,10 @@ class MainPage(Base):
     # Methods
 
     def select_spinning_page(self):
+        Logger.add_start_step(method='select_spinning_page')
         self.get_current_url()
         self.click_button_spinning()
         self.create_screenshot("Spinning_page")
         self.assert_word(self.get_word_spinning(), 'Спиннинги')
+        Logger.add_end_step(url=self.driver.current_url, method='select_spinning_page')
 
